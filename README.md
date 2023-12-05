@@ -1,5 +1,5 @@
 # LoveLocal Assignment of Sounthariyaa J - ENG20AM0055
-## EASY1 
+# EASY1 
 ## length_of_last_word Function
 
 The `length_of_last_word` function takes a string as input and returns the length of the last word in the string. It follows a simple algorithm that involves iterating through the string from right to left, skipping trailing spaces, and counting the length of the last word.
@@ -61,7 +61,7 @@ The length of the last word is: 5
 ## Time Complexity:
 The time complexity of the function is O(n), where n is the length of the input string. The function iterates through the string once, performing constant-time operations at each step. This linear time complexity makes the function efficient for strings of varying lengths.
 
-## EASY 3
+# EASY 3
 
 ## PASCAL's TRIANGLE
 
@@ -136,7 +136,7 @@ For `numRows = 5`, the output would be:
 ### Time Complexity:
 The time complexity of the `generate` method is O(numRows^2), where `numRows` is the number of rows in Pascal's Triangle. The method efficiently constructs each row, performing constant-time operations at each step.
 
-## MEDIUM2
+# MEDIUM2
 
 # majorityElement Method in Solution Class
 
@@ -200,9 +200,9 @@ Majority Elements: [2, 4]
 The time complexity of the `majorityElement` method is O(n), where n is the length of the input list. The method efficiently counts the occurrences of each element using a Counter and iterates through the counts, performing constant-time operations at each step.
 
 
-#HARD2
+# HARD2
 
-##ShortestPalindrome Function
+## ShortestPalindrome Function
 
 The `shortestPalindrome` function converts a given string to its shortest palindrome by adding characters in front of the string. It follows an algorithm that iteratively checks substrings and adds characters until a palindrome is formed.
 
