@@ -126,14 +126,75 @@ result = Solution().generate(numRows)
 print(result)
 ```
 
-## Example Output:
+### Example Output:
 
 For `numRows = 5`, the output would be:
 ```
 [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
 ```
 
-## Time Complexity:
+### Time Complexity:
 The time complexity of the `generate` method is O(numRows^2), where `numRows` is the number of rows in Pascal's Triangle. The method efficiently constructs each row, performing constant-time operations at each step.
 
 ## MEDIUM2
+
+# majorityElement Method in Solution Class
+
+The `majorityElement` method in the `Solution` class identifies elements that appear more than ⌊ n/3 ⌋ times in a given list of integers (`nums`). It uses a Counter to efficiently count the occurrences of each element and then iterates through the counts to find majority elements.
+
+## Method Explanation:
+
+1. **Create Counter:**
+   - The method creates a Counter (`element_count`) to store the count of each element in the input list (`nums`).
+
+2. **Identify Majority Elements:**
+   - A list (`majority_elements`) is initialized to store the identified majority elements.
+   - A threshold is calculated as ⌊ n/3 ⌋, where `n` is the length of the input list.
+   - The method iterates through the element count to identify elements with counts greater than the threshold, and appends them to `majority_elements`.
+
+3. **Return Majority Elements:**
+   - The method returns the list of majority elements.
+
+## Example Usage:
+
+```python
+from collections import Counter
+
+class Solution:
+    def majorityElement(self, nums: list[int]) -> list[int]:
+        # Create a Counter to store the count of each element
+        element_count = Counter(nums)
+        
+        majority_elements = []
+        threshold = len(nums) // 3
+        
+        # Iterate through the element count to identify majority elements
+        for element, count in element_count.items():
+            # Check if the element count is greater than the threshold
+            if count > threshold:
+                majority_elements.append(element)
+        
+        return majority_elements
+
+# Example usage
+# Take user input for a list of integers
+user_input = input("Enter a list of integers separated by spaces: ")
+nums = list(map(int, user_input.split()))
+
+# Create an instance of the Solution class
+solution = Solution()
+
+# Call the majorityElement method and print the result
+result = solution.majorityElement(nums)
+print("Majority Elements:", result)
+```
+
+## Example Output:
+
+For input `nums = [3, 3, 2, 2, 2, 4, 4, 4]`, the output would be:
+```
+Majority Elements: [2, 4]
+```
+
+## Time Complexity:
+The time complexity of the `majorityElement` method is O(n), where n is the length of the input list. The method efficiently counts the occurrences of each element using a Counter and iterates through the counts, performing constant-time operations at each step.
