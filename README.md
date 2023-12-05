@@ -1,6 +1,6 @@
 # LoveLocal Assignment of Sounthariyaa J - ENG20AM0055
-##EASY1 
-##length_of_last_word Function
+## EASY1 
+## length_of_last_word Function
 
 The `length_of_last_word` function takes a string as input and returns the length of the last word in the string. It follows a simple algorithm that involves iterating through the string from right to left, skipping trailing spaces, and counting the length of the last word.
 
