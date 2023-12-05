@@ -1,13 +1,5 @@
 def generate(numRows):
-  """
-  Generates the first numRows of Pascal's triangle.
-
-  Args:
-      numRows: An integer representing the desired number of rows.
-
-  Returns:
-      A list of lists representing the first numRows of Pascal's triangle.
-  """
+  
   triangle = []
 
   # Base case for the first row
