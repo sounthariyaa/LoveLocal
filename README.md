@@ -1,6 +1,5 @@
-# LoveLocal
-Assignment of Sounthariyaa J - ENG20AM0055
-#EASY1 
+# LoveLocal Assignment of Sounthariyaa J - ENG20AM0055
+##EASY1 
 ##length_of_last_word Function
 
 The `length_of_last_word` function takes a string as input and returns the length of the last word in the string. It follows a simple algorithm that involves iterating through the string from right to left, skipping trailing spaces, and counting the length of the last word.
@@ -61,5 +60,5 @@ The length of the last word is: 5
 
 ## Time Complexity:
 The time complexity of the function is O(n), where n is the length of the input string. The function iterates through the string once, performing constant-time operations at each step. This linear time complexity makes the function efficient for strings of varying lengths.
-```
+
 
