@@ -198,3 +198,78 @@ Majority Elements: [2, 4]
 
 ## Time Complexity:
 The time complexity of the `majorityElement` method is O(n), where n is the length of the input list. The method efficiently counts the occurrences of each element using a Counter and iterates through the counts, performing constant-time operations at each step.
+
+
+#HARD2
+
+##ShortestPalindrome Function
+
+The `shortestPalindrome` function converts a given string to its shortest palindrome by adding characters in front of the string. It follows an algorithm that iteratively checks substrings and adds characters until a palindrome is formed.
+
+## Function Explanation:
+
+1. **Get User Input:**
+   - The function prompts the user to enter a string.
+
+2. **Reverse the String:**
+   - The original string is reversed to create a reversed version (`p`).
+
+3. **Initialize Variables:**
+   - `add`: A string initialized to hold added characters.
+   - `n`: The length of the original string.
+
+4. **Iterate Through Positions:**
+   - A `for` loop iterates through positions in the original string.
+   - Substrings `a` and `b` are extracted based on the current position.
+
+5. **Check Substring Equality:**
+   - The function checks if substrings `a` and `b` are equal.
+   - If not equal, the last character of `a` is added to `add`.
+   - If equal, the loop is terminated.
+
+6. **Combine and Return:**
+   - The shortest palindrome is formed by combining `add` and the original string (`s`).
+   - The function prints and returns the shortest palindrome.
+
+## Example Usage:
+
+```python
+def shortestPalindrome():
+    # Get user input
+    s = input("Enter the string to convert to a palindrome: ")
+
+    p = s[::-1]  # Reverse the original string
+    add = ""  # Initialize the string to hold added characters
+
+    n = len(s)  # Store the string length
+
+    # Iterate through positions in the original string
+    for i in range(n):
+        # Extract substrings
+        a = s[0:n - i]  # From beginning excluding last i characters
+        b = p[i:]  # From reversed string starting at position i
+
+        # Check if substrings are equal
+        if a != b:
+            add += a[-1]  # Add last character of a if not equal
+        else:
+            break  # Stop the loop if equal
+
+    # Combine and return the shortest palindrome
+    shortest_palindrome = add + s
+    print(f"Shortest palindrome: {shortest_palindrome}")
+    return shortest_palindrome
+
+# Run the function
+shortestPalindrome()
+```
+
+## Example Output:
+
+For input `"abcd"`, the output would be:
+```
+Shortest palindrome: "dcbabcd"
+```
+
+## Time Complexity:
+The overall time complexity of the function is O(n), where n is the length of the input string `s`. The function iterates through the string once, performing constant-time operations at each step.
