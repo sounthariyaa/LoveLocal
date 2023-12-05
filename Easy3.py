@@ -1,26 +1,29 @@
-def generate(numRows):
-  
-  triangle = []
+from typing import List
 
-  # Base case for the first row
-  if numRows >= 1:
-    triangle.append([1])
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        triangle = []
 
-  # Loop to generate subsequent rows
-  for row_num in range(1, numRows):
-    row = [1] * (row_num + 1)  # Initialize row with 1s
+        # Base case for the first row
+        if numRows >= 1:
+            triangle.append([1])
 
-    # compute each element using previous row
-    for i in range(1, row_num):
-      row[i] = triangle[row_num - 1][i - 1] + triangle[row_num - 1][i]
+        # Loop to generate subsequent rows
+        for row_num in range(1, numRows):
+            row = [1]  # Initialize row with the first element as 1
 
-    triangle.append(row)
+            # Optimize the inner loop
+            for i in range(1, row_num):
+                row.append(triangle[row_num - 1][i - 1] + triangle[row_num - 1][i])
 
-  return triangle
+            # The last element of each row is always 1
+            row.append(1)
 
-numRows = int(input("Enter the number of rows: "))
-triangle = generate(numRows)
-for row in triangle:
-  print(row)
+            triangle.append(row)
 
-#The time complexity of the code is O(n^2), where n is the number of rows in Pascal's triangle. This is because the outer loop iterates through n rows, and the inner loop iterates through the elements of each row, which takes n time per iteration.
+        return triangle
+
+# Example usage
+numRows = 5
+result = Solution().generate(numRows)
+print(result)
