@@ -1,31 +1,28 @@
-def majorityElement(nums):
-  """
-  Finds all elements that appear more than ⌊ n/3 ⌋ times in an integer array.
+from collections import Counter
 
-  Args:
-      nums: An integer array.
+class Solution:
+    def majorityElement(self, nums: list[int]) -> list[int]:
+        # Create a Counter to store the count of each element
+        element_count = Counter(nums)
+        
+        majority_elements = []
+        threshold = len(nums) // 3
+        
+        # Iterate through the element count to identify majority elements
+        for element, count in element_count.items():
+            # Check if the element count is greater than the threshold
+            if count > threshold:
+                majority_elements.append(element)
+        
+        return majority_elements
 
-  Returns:
-      A list of elements that appear more than ⌊ n/3 ⌋ times.
-  """
-  threshold = len(nums) // 3
-  candidates = set()
-  element_counts = defaultdict(int)
-  for num in nums:
-    element_counts[num] += 1
-    if element_counts[num] > threshold:
-      candidates.add(num)
-  
-  # Filter candidates by verifying their actual counts
-  for num in candidates:
-    if element_counts[num] <= threshold:
-      candidates.remove(num)
+# Take user input for a list of integers
+user_input = input("Enter a list of integers separated by spaces: ")
+nums = list(map(int, user_input.split()))
 
-  return list(candidates)
+# Create an instance of the Solution class
+solution = Solution()
 
-# Get user input
-nums = list(map(int, input("Enter the numbers separated by spaces: ").split()))
-
-# Find and print the majority elements
-result = majorityElement(nums)
-print(f"Elements appearing more than ⌊ n/3 ⌋ times: {result}")
+# Call the majorityElement method and print the result
+result = solution.majorityElement(nums)
+print("Majority Elements:", result)
