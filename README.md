@@ -61,4 +61,79 @@ The length of the last word is: 5
 ## Time Complexity:
 The time complexity of the function is O(n), where n is the length of the input string. The function iterates through the string once, performing constant-time operations at each step. This linear time complexity makes the function efficient for strings of varying lengths.
 
+## EASY 3
 
+## PASCAL's TRIANGLE
+
+The `generate` method in the `Solution` class generates Pascal's Triangle up to a specified number of rows (`numRows`). The method follows an algorithm that efficiently constructs each row of the triangle based on the values of the previous row.
+
+## Method Explanation:
+
+1. **Initialize Triangle:**
+   - The `triangle` list is initialized to store the rows of Pascal's Triangle.
+
+2. **Base Case for the First Row:**
+   - If `numRows` is greater than or equal to 1, the base case for the first row `[1]` is added to the `triangle`.
+
+3. **Loop to Generate Subsequent Rows:**
+   - A `for` loop iterates from the second row (`row_num = 1`) up to the specified number of rows (`numRows`).
+   - Each row is initialized with the first element as 1 (`row = [1]`).
+
+4. **Optimize the Inner Loop:**
+   - An inner `for` loop iterates through the row, skipping the first and last elements.
+   - The inner loop efficiently calculates each element in the row by summing the corresponding elements from the previous row.
+
+5. **Add the Last Element:**
+   - The last element of each row is always 1, so it is appended to the row.
+
+6. **Add the Row to Triangle:**
+   - The generated row is appended to the `triangle` list.
+
+7. **Return Triangle:**
+   - The method returns the complete Pascal's Triangle stored in the `triangle` list.
+
+## Example Usage:
+
+```python
+from typing import List
+
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        triangle = []
+
+        # Base case for the first row
+        if numRows >= 1:
+            triangle.append([1])
+
+        # Loop to generate subsequent rows
+        for row_num in range(1, numRows):
+            row = [1]  # Initialize row with the first element as 1
+
+            # Optimize the inner loop
+            for i in range(1, row_num):
+                row.append(triangle[row_num - 1][i - 1] + triangle[row_num - 1][i])
+
+            # The last element of each row is always 1
+            row.append(1)
+
+            triangle.append(row)
+
+        return triangle
+
+# Example usage
+numRows = 5
+result = Solution().generate(numRows)
+print(result)
+```
+
+## Example Output:
+
+For `numRows = 5`, the output would be:
+```
+[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+```
+
+## Time Complexity:
+The time complexity of the `generate` method is O(numRows^2), where `numRows` is the number of rows in Pascal's Triangle. The method efficiently constructs each row, performing constant-time operations at each step.
+
+## MEDIUM2
